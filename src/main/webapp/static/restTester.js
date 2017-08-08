@@ -21,11 +21,10 @@ app.controller('restTestAppcontroller', function($scope, $http) {
 			}
 		}).then(function successCallback(response) {
 			console.log("success:");
-			console.log(response);
 			$scope.responseData = JSON.stringify(response.data, null, 2);
 		}, function errorCallback(response) {
 			console.log("fail:");
-			console.log(response.data.status+":"+response.data.statusText);
+			$scope.responseData = JSON.stringify(response.data, null, 2);
 		});
 	}
 });

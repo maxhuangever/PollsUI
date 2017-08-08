@@ -24,7 +24,7 @@
 				<tr>
 					<td>HTTP Method:</td>
 					<td>
-						<select ng-model="requestMethod"
+						<select ng-model="requestMethod" ng-required="true" 
 							ng-options="method.name for method in methods">
 							<option value="">Choose Method</option>
 						</select>
