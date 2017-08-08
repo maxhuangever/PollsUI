@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>REST test page</title>
+<script
+	src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script src="static/restTester.js"></script>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+</head>
+<body ng-app="restTestApp" ng-controller="restTestAppcontroller">
+	<h3>Request</h3>
+	<form>
+		<div class="table-responsive">
+			<table class="table table-bordered" style="width: 900px">
+				<tr>
+					<td>URL:</td>
+					<td>
+						<input type="text" id="inputUrl" ng-model="requestUrl"
+							size="100" />
+					</td>
+				</tr>
+				<tr>
+					<td>HTTP Method:</td>
+					<td>
+						<select ng-model="requestMethod"
+							ng-options="method.name for method in methods">
+							<option value="">Choose Method</option>
+						</select>
+					</td>
+
+				</tr>
+				<tr ng-show="requestMethod.name=='POST'">
+					<td>request body:</td>
+					<td>
+						<textarea ng-model="requestBody" rows="10" cols="80">
+						</textarea>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2">
+						<input type="submit"
+							class="btn btn-primary btn-sm" ng-click="processRequest()"
+							value="SEND" />
+					</td>
+				</tr>
+			</table>
+		</div>
+	</form>
+
+
+	<h3>Response</h3>
+	<div class="table-responsive">
+		<textarea id="response" rows="15" cols="120" 
+			ng-model="responseData" readonly></textarea>
+	</div>
+</body>
+</html>
